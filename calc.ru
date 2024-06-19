@@ -16,10 +16,10 @@ class Calculator
 
   def get_integer_input
     begin
-      Integer(gets.chomp)
+      Integer(gets.chomp) # Convert user input to an integer
     rescue ArgumentError
       puts 'Invalid input. Please enter a valid integer.'
-      retry
+      retry # Retry getting input if an invalid integer is entered
     end
   end
 
@@ -27,7 +27,7 @@ class Calculator
     operation = gets.chomp
     unless ['+', '-', '*', '/'].include?(operation)
       puts 'Invalid input. Please enter a valid operation (+, -, *, /).'
-      get_operation_input
+      get_operation_input # Recursively call the method until a valid operation is entered
     end
     operation
   end
@@ -35,13 +35,13 @@ class Calculator
   def calculate
     case @operation
     when '+'
-      @first_number + @second_number
+      @first_number + @second_number # Perform addition
     when '-'
-      @first_number - @second_number
+      @first_number - @second_number # Perform subtraction
     when '*'
-      @first_number * @second_number
+      @first_number * @second_number # Perform multiplication
     when '/'
-      @first_number / @second_number
+      @first_number / @second_number # Perform division
     end
   end
 end
